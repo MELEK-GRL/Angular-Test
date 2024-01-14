@@ -1,0 +1,220 @@
+@import 'src/theme/variables';
+
+.main_content {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    .product-title {
+        font-weight: 600;
+        font-size: 16px;
+        padding-left: 20px;
+    }
+    .text_content {
+        margin: 0px;
+        padding: 5px 10px 5px 10px;
+        display: flex;
+        flex-direction: column;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        gap: 5px;
+        height: 95px;
+
+        .title-text {
+            color: $color-black;
+            font-weight: 600;
+            font-size: 17px;
+        }
+        .text_container {
+            display: flex;
+            flex-direction: column;
+            padding: 0px;
+            gap: 5px;
+            .text_content_first {
+                padding: 0px;
+                display: flex;
+                justify-content: space-between;
+                .title-text-first {
+                    font-size: 12px;
+                    color: gray;
+                    font-weight: 600;
+                    white-space: pre-wrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+            .text_content_second {
+                padding: 0px;
+                display: flex;
+                justify-content: space-between;
+                .title-text-second {
+                    font-size: 12px;
+                    color: $color-black;
+                    font-weight: 600;
+                    flex-direction: column;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+    .menu_content {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 50px;
+        position: fixed;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: white;
+
+        .menu-icon {
+            color: $color-black;
+            width: 40px;
+            height: 40px;
+        }
+
+        .menu-label {
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .icon_container {
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            flex-direction: row;
+            padding-inline: 0px;
+
+            .menu-icon-shop {
+                color: $color-black;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+    .section_content {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        padding: 0px;
+        margin: 0px;
+        margin-top: 70px;
+        .section_container {
+            display: flex;
+            width: 100%;
+            padding: 10px;
+            margin: 0px;
+            flex-direction: column;
+            gap: 20px;
+            padding: 0px;
+            margin: 0px;
+            .searchBar-Input-Item {
+                padding: 0px 10px 0px 10px;
+            }
+            .searchBar-Input {
+                margin: 0px;
+                width: 100%;
+                height: 40px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0px 10px 0px 10px;
+            }
+            .search-icon-container {
+                margin: 0px;
+                padding: 0px;
+                .search-Icon {
+                    width: 15px;
+                    height: 15px;
+                    color: gray;
+                }
+            }
+            .product_content {
+                margin: 0px;
+                padding: 0px;
+                gap: 20px;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                width: 100%;
+                .productList_container {
+                    height: 100%;
+                    padding: 0px;
+                    margin: 0px;
+                    .productCard_container {
+                        padding: 0px;
+                        margin: 0px;
+                        width: 100%;
+                        height: 100%;
+                        .product-card-container {
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 10px;
+                            display: flex;
+                            position: relative;
+                            margin: 0px;
+                            padding: 0px;
+                            flex-direction: column;
+                            .card-img {
+                                display: flex;
+                                height: 100%;
+                                width: 100%;
+                                margin: 0px;
+                                padding: 0px;
+                                height: 200px;
+                                .imagesItem {
+                                    width: 100%;
+                                    margin: 0px;
+                                    padding: 0px;
+                                    display: flex;
+                                    object-fit: cover;
+                                }
+
+                                .card-img-default {
+                                    height: 100%;
+                                    width: 100%;
+                                    background-color: $color-black;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                }
+                            }
+                            .card-star {
+                                position: absolute;
+                                left: 10px;
+                                top: 10px;
+                                display: flex;
+                                gap: 5px;
+                                background-color: #B70014;
+                                color: white;
+                                font-weight: 600;
+                                border-radius: 10px;
+                                padding: 16px;
+                                margin: 0px;
+                                height: 30px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                .card-star-text {
+                                    font-size: 13px;
+                                }
+                            }
+                            .star-icon {
+                                width: 12px;
+                                height: 12px;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+        .search-input {
+            width: 100%;
+            height: 40px;
+        }
+    }
+}

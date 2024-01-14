@@ -1,0 +1,88 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>CASE</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="main_content">
+    <ion-header class="menu_content">
+      <ion-img class="menu-icon" src="assets/icon/menu.png"></ion-img>
+      <ion-label class="menu-label">AnaSayfa</ion-label>
+      <ion-card-header class="icon_container">
+        <ion-img class="menu-icon-shop" src="assets/icon/shop.png"></ion-img>
+        <ion-img class="menu-icon-shop" src="assets/icon/shop2.png"></ion-img>
+      </ion-card-header>
+    </ion-header>
+    <ion-card-content class="section_content">
+      <ion-card-content class="section_container">
+        <ion-card-content class="searchBar-Input-Item">
+          <ion-card class="searchBar-Input">
+            <ion-input placeholder="Mekan Ara" class="search-input" [(ngModel)]="searchKeyword"
+              (input)="onInput($event)"></ion-input>
+            <ion-card-content class="search-icon-container">
+              <ion-img class="search-Icon" src="assets/icon/search.png"></ion-img>
+            </ion-card-content>
+          </ion-card>
+        </ion-card-content>
+        <ion-card-content class="product_content">
+          <ion-card-content class="productList_container">
+            <ion-card-content class="productCard_container">
+              <ion-content class="main_content">
+                <ng-container
+                  *ngIf="getJsonValue && getJsonValue.response && getJsonValue.response.length && getJsonValue.response.length && getJsonValue.response.length > 0">
+                  <ion-label class="product-title">Sonuçlar</ion-label>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col size-sm="12" size-md="6" size-lg="4" size-xl="3"
+                        *ngFor="let item of getJsonValue.response">
+                        <ion-card>
+                          <ion-card-content class="product-card-container">
+                            <div class="card-img">
+                              <ng-container *ngIf="item.images && item.images.length > 0">
+                                <ion-img [src]="item.images[0]?.base64 || 'images'" alt="img"
+                                  class="imagesItem"></ion-img>
+                              </ng-container>
+                              <ng-container *ngIf="!item.images || item.images.length === 0">
+                                <ion-label class="card-img-default">RESİM YÜKLENMEMİŞTİR</ion-label>
+                              </ng-container>
+                            </div>
+                            <ion-card class="card-star">
+                              <ion-img class="star-icon" src="assets/icon/star.png"></ion-img>
+                              <ion-text class="card-star-text">{{ item.storeInfo.rate || 'Yeni' }}</ion-text>
+                            </ion-card>
+                          </ion-card-content>
+                          <ion-card-content class="text_content">
+                            <ion-text class="title-text">{{ item.title }}</ion-text>
+                            <ion-card-content class="text_container">
+                              <ion-card-content class="text_content_first" *ngIf="item?.text">
+                                <ion-text class="title-text-first">{{ item.text }}</ion-text>
+                              </ion-card-content>
+                              <ion-card-content class="text_content_second">
+                                <ion-text class="title-text-second"
+                                  *ngIf="item && item?.storeInfo && item?.storeInfo?.workingHours[0]">
+                                  İşletme {{ item.storeInfo.workingHours[0].closed ? 'Kapalı' : 'Açık' }}:
+                                  {{ item?.storeInfo?.workingHours[0]?.open }} / {{
+                                  item?.storeInfo?.workingHours[0]?.close }}
+                                </ion-text>
+                                <ion-text class="title-text-second">Sipariş Tutarı: {{ item.storeInfo.minOrderPrice }}
+                                  TL</ion-text>
+                              </ion-card-content>
+                            </ion-card-content>
+                          </ion-card-content>
+                        </ion-card>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+  
+                </ng-container>
+                <ion-infinite-scroll (ionInfinite)="loadData($event)">
+                  <ion-infinite-scroll-content loadingText="Daha fazla veri yükleniyor..."></ion-infinite-scroll-content>
+                </ion-infinite-scroll>
+              </ion-content>
+            </ion-card-content>
+          </ion-card-content>
+        </ion-card-content>
+  
+      </ion-card-content>
+    </ion-card-content>
+  </ion-content>
+  
